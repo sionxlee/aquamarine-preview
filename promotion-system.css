@@ -1,6 +1,6 @@
 /* Homepage carousel and session-only promotion popup. */
 .hero-promotion-slideshow { height: 100%; width: 100%; position: relative; overflow: hidden; }
-.promo-carousel-viewport { height: 100%; overflow: hidden; }
+.promo-carousel-viewport { height: 100%; overflow: hidden; touch-action: pan-y pinch-zoom; }
 .promo-slides { height: 100%; display: flex; will-change: transform; }
 .promo-slides.is-animating { transition: transform 650ms ease-in-out; }
 .promo-hero-slide { position: relative; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; flex: 0 0 100%; min-width: 0; overflow: hidden; background: var(--ivory); }

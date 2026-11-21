@@ -27,7 +27,8 @@
   const clonedFirst = slides.length > 1 ? slideMarkup(slides[0], 0, true) : '';
   target.innerHTML = `<div class="promo-carousel-viewport"><div class="promo-slides" style="transform:translate3d(-100%,0,0)">${clonedLast}${originals}${clonedFirst}</div></div><div class="promo-slider-controls" aria-label="${lang === 'zh' ? '首页轮播图控制' : 'Homepage slideshow controls'}"><button type="button" class="promo-slider-button" data-promo-prev aria-label="${lang === 'zh' ? '上一张' : 'Previous slide'}">←</button><div class="promo-slider-dots" role="tablist">${slides.map((slide, index) => `<button type="button" role="tab" aria-selected="${index === 0}" aria-label="${lang === 'zh' ? '前往第' : 'Go to slide '}${index + 1}" data-promo-dot="${index}"></button>`).join('')}</div><button type="button" class="promo-slider-button" data-promo-next aria-label="${lang === 'zh' ? '下一张' : 'Next slide'}">→</button></div>`;
 
-  const track = target.querySelector('.promo-slides');
+  const viewport = target.querySelector('.promo-carousel-viewport');
+  const track = viewport.querySelector('.promo-slides');
   const rendered = [...track.querySelectorAll('.promo-hero-slide')];
   const dots = [...target.querySelectorAll('[data-promo-dot]')];
   let current = 0;
@@ -38,8 +39,8 @@
   let hovering = false;
   let interacting = false;
   let resumeAfterTransition = false;
-  let startX = null;
-  let suppressClick = false;
+  let gesture;
+  let suppressClickUntil = 0;
 
   function setTrack(animated) {
     track.classList.toggle('is-animating', animated && !reduced.matches);
@@ -112,28 +113,51 @@
 
   target.addEventListener('mouseenter', () => { hovering = true; stopTimer(); });
   target.addEventListener('mouseleave', () => { hovering = false; startTimer(); });
-  target.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
+  viewport.addEventListener('pointerdown', event => {
+    if (!event.isPrimary || event.pointerType === 'mouse' || isTransitioning || slides.length < 2) return;
+    suppressClickUntil = 0;
     interacting = true;
-    startX = event.clientX;
+    gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, dragging: false };
     stopTimer();
   }, { passive: true });
-  target.addEventListener('pointerup', event => {
-    if (startX === null) return;
-    const delta = event.clientX - startX;
-    if (Math.abs(delta) > 42) {
-      suppressClick = true;
-      requestSlide(current + (delta < 0 ? 1 : -1), delta < 0 ? 1 : -1);
-      setTimeout(() => { suppressClick = false; }, 0);
+  viewport.addEventListener('pointermove', event => {
+    if (gesture?.id !== event.pointerId) return;
+    const dx = event.clientX - gesture.x;
+    const dy = event.clientY - gesture.y;
+    if (!gesture.dragging) {
+      if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
+      gesture.dragging = true;
+    }
+    if (!reduced.matches) {
+      const width = viewport.clientWidth;
+      const offset = Math.max(-width, Math.min(width, dx));
+      track.classList.remove('is-animating');
+      track.style.transform = `translate3d(calc(-${physical * 100}% + ${offset}px),0,0)`;
+    }
+  }, { passive: true });
+  function endGesture(event) {
+    if (gesture?.id !== event.pointerId) return;
+    const dx = event.clientX - gesture.x;
+    const dy = event.clientY - gesture.y;
+    const dragged = gesture.dragging;
+    gesture = undefined;
+    interacting = false;
+    const swiped = event.type === 'pointerup' && Math.abs(dx) >= 42 && Math.abs(dx) > Math.abs(dy) * 1.25;
+    if (dragged || swiped) suppressClickUntil = performance.now() + 450;
+    if (swiped) {
+      const direction = dx < 0 ? 1 : -1;
+      requestSlide(current + direction, direction);
     } else {
+      if (dragged) setTrack(true);
       startTimer();
     }
-    startX = null;
-    interacting = false;
-  }, { passive: true });
-  target.addEventListener('pointercancel', () => { startX = null; interacting = false; startTimer(); }, { passive: true });
-  target.addEventListener('click', event => {
-    if (suppressClick && event.target.closest('.promo-hero-slide')) event.preventDefault();
+  }
+  viewport.addEventListener('pointerup', endGesture, { passive: true });
+  viewport.addEventListener('pointercancel', endGesture, { passive: true });
+  viewport.addEventListener('click', event => {
+    if (event.detail && performance.now() < suppressClickUntil && event.target.closest('.promo-hero-slide')) {
+      event.preventDefault();
+    }
   });
   target.addEventListener('keydown', event => {
     if (event.key === 'ArrowLeft') { event.preventDefault(); requestSlide(current - 1, -1); }
