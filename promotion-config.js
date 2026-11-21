@@ -5,7 +5,7 @@ window.AquamarinePromotions = {
     {
       id: 'hair-year-end', active: true, priority: 1,
       href: '/aquamarine-preview/promotions/hair-year-end/', zhHref: '/aquamarine-preview/zh/promotions/hair-year-end/',
-      heroDesktop: '/aquamarine-preview/assets/promotions/HeroHairD.webp', heroMobile: '/aquamarine-preview/assets/promotions/HeroHairM.webp',
+      heroDesktop: '/aquamarine-preview/assets/promotions/HeroHairD.webp', heroMobile: '/aquamarine-preview/assets/promotions/HeroHairD.webp',
       popupDesktop: '/aquamarine-preview/assets/promotions/PopupHairD.webp', popupMobile: '/aquamarine-preview/assets/promotions/PopupHairM.webp',
       heroWidth: 1920, heroHeight: 900, popupWidth: 900, popupHeight: 1200,
       heroBackground: '#454940',
@@ -15,7 +15,7 @@ window.AquamarinePromotions = {
     {
       id: 'facial-first-trial', active: true, priority: 2,
       href: '/aquamarine-preview/promotions/facial-first-trial/', zhHref: '/aquamarine-preview/zh/promotions/facial-first-trial/',
-      heroDesktop: '/aquamarine-preview/assets/promotions/HeroFacialD.webp', heroMobile: '/aquamarine-preview/assets/promotions/HeroFacialM.webp',
+      heroDesktop: '/aquamarine-preview/assets/promotions/HeroFacialD.webp', heroMobile: '/aquamarine-preview/assets/promotions/HeroFacialD.webp',
       popupDesktop: '/aquamarine-preview/assets/promotions/PopupFacialD.webp', popupMobile: '/aquamarine-preview/assets/promotions/PopupFacialM.webp',
       heroWidth: 1920, heroHeight: 900, popupWidth: 900, popupHeight: 1200,
       heroBackground: '#d5adbc',
