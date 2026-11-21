@@ -163,16 +163,38 @@
     const root = document.createElement('div');
     root.className = 'promotion-popup'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-modal', 'true'); root.setAttribute('aria-label', campaign[lang].title);
     root.innerHTML = `<div class="promotion-popup-backdrop" data-promo-close></div><div class="promotion-popup-panel"><button class="promotion-popup-close" type="button" data-promo-close aria-label="${lang === 'zh' ? '关闭推广信息' : 'Close promotion'}">×</button><a href="${lang === 'zh' ? campaign.zhHref : campaign.href}" aria-label="${campaign[lang].title}">${picture(campaign, 0, 'popup')}</a></div>`;
-    const close = () => {
+    const previousFocus = document.activeElement;
+    let closeTimer;
+    const removePopup = () => {
+      window.clearTimeout(closeTimer);
       root.remove();
       document.removeEventListener('keydown', onKey);
-      window.removeEventListener('pagehide', close);
+      window.removeEventListener('pagehide', removePopup);
     };
+    const finishClose = () => {
+      removePopup();
+      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) {
+        previousFocus.focus({ preventScroll: true });
+      }
+    };
+    const close = () => {
+      if (root.classList.contains('is-closing')) return;
+      if (reduced.matches) {
+        finishClose();
+        return;
+      }
+      root.classList.add('is-closing');
+      // Fallback for browsers that skip animationend when a tab is hidden.
+      closeTimer = window.setTimeout(finishClose, 350);
+    };
+    root.addEventListener('animationend', event => {
+      if (event.target === root && event.animationName === 'promotion-popup-fade-out') finishClose();
+    });
     const onKey = event => { if (event.key === 'Escape') close(); };
     root.querySelectorAll('[data-promo-close]').forEach(item => item.addEventListener('click', close));
     document.addEventListener('keydown', onKey);
     // A restored history entry can reuse the existing DOM without running this script again.
-    window.addEventListener('pagehide', close);
+    window.addEventListener('pagehide', removePopup);
     document.body.append(root);
     try { sessionStorage.setItem(config.popup.sessionKey, '1'); } catch (_) {}
     root.querySelector('.promotion-popup-close').focus();

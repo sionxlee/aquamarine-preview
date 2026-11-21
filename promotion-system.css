@@ -22,9 +22,15 @@
 .promo-slider-dots button[aria-selected="true"]::after { background: var(--ivory); transform: scale(1.35); }
 
 /* The artwork remains complete inside a proportional, two-thirds viewport frame. */
-.promotion-popup { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 22px; }
-.promotion-popup-backdrop { position: absolute; inset: 0; background: #173d2ed9; }
+.promotion-popup { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 22px; animation: promotion-popup-fade-in 240ms ease-out both; }
+.promotion-popup-backdrop { position: absolute; inset: 0; background: rgb(23 61 46 / 46%); }
 .promotion-popup-panel { position: relative; z-index: 1; width: min(66.667vw, 50svh); max-width: calc(100vw - 44px); max-height: calc(100svh - 44px); aspect-ratio: 3 / 4; background: #121313; box-shadow: 0 20px 55px #0008; }
+.promotion-popup-panel { animation: promotion-popup-rise 300ms var(--ease) both; }
+.promotion-popup.is-closing { animation: promotion-popup-fade-out 220ms ease-in both; }
+.promotion-popup.is-closing .promotion-popup-panel { pointer-events: none; }
+@keyframes promotion-popup-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes promotion-popup-rise { from { transform: translateY(10px) scale(.985); } to { transform: none; } }
+@keyframes promotion-popup-fade-out { from { opacity: 1; } to { opacity: 0; } }
 .promotion-popup-panel a, .promotion-popup-panel picture, .promotion-popup-panel img { display: block; width: 100%; height: 100%; }
 .promotion-popup-panel img { object-fit: contain; }
 .promotion-popup-close { position: absolute; z-index: 2; right: -14px; top: -14px; width: 40px; height: 40px; border: 1px solid var(--ivory); border-radius: 50%; background: var(--deep); color: var(--ivory); font-size: 25px; line-height: 1; }
@@ -42,4 +48,5 @@
 @media (prefers-reduced-motion: reduce) {
   .promo-slides { transition: none !important; }
   .promo-slider-controls { display: none; }
+  .promotion-popup, .promotion-popup.is-closing, .promotion-popup-panel { animation: none; }
 }
