@@ -1,0 +1,234 @@
+:root{--green:#2F684F;--fresh:#4E8064;--deep:#173D2E;--ivory:#F8F6EF;--botanical:#E6EEE6;--text:#294238;--display:'Cormorant Garamond',Georgia,serif;--body:'Manrope',sans-serif;--gutter:clamp(24px,4.4vw,80px);--ease:cubic-bezier(.22,1,.36,1);--reveal:700ms;--panel-motion:480ms;--hero-copy-offset:-65px;--service-shade:rgba(25,29,24,.36);--header-height:104px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--ivory);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button{border:0;background:none}a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:7px}.skip-link{position:fixed;top:-80px;left:20px;z-index:50;padding:14px;background:var(--ivory)}.skip-link:focus{top:12px}
+.header{height:var(--header-height);position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);transition:background 350ms,height 350ms,border-color 350ms;border-bottom:1px solid transparent}.header.scrolled,.header.menu-open{background:var(--ivory);height:80px;border-color:#2f684f18}.wordmark{font-family:var(--display);font-size:32px;line-height:1;color:var(--green);letter-spacing:-1px}.wordmark span{display:block;text-align:center;font-family:var(--body);font-size:8px;letter-spacing:3.2px;margin-top:8px}nav{display:flex;align-items:center;gap:32px;font-size:12px}nav>a,nav>button{padding:10px 0}nav>a:hover,nav>button:hover{color:var(--fresh)}.language{display:flex;gap:9px;margin-left:12px;font-size:11px}.language span:nth-child(2){opacity:.35}.booking{border:1px solid #2f684f80;padding:14px 20px;display:flex;gap:22px;align-items:center}.booking:hover{background:var(--botanical)}.menu-toggle{display:none}
+.hero{height:100svh;min-height:680px;max-height:1100px;position:relative;display:grid;place-items:center;overflow:hidden}.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-content{position:relative;text-align:center;margin-top:var(--hero-copy-offset);color:var(--green)}h1{font-family:var(--display);font-weight:400;font-size:clamp(70px,8.4vw,136.5px);line-height:1;letter-spacing:-.055em;margin:0 0 25px}.tagline{font-family:var(--display);font-size:clamp(29px,3.1vw,48px);line-height:1.15;margin:0}.tagline{font-weight:400;font-style:normal}.hero-cta{display:inline-flex;align-items:center;position:relative;gap:18px;font-size:9px;font-weight:500;letter-spacing:1.8px;margin-top:35px;padding-bottom:10px}.hero-cta::after{content:"";position:absolute;bottom:0;left:0;width:56px;height:1px;background:#2f684f60}.hero-cta span{font-size:19px;line-height:1;transition:transform .3s}.hero-cta:hover span{transform:translateX(5px)}.hero-foot{position:absolute;bottom:29px;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;font-size:8px;font-weight:600;letter-spacing:2px}.hero-foot a{display:flex;gap:19px;align-items:center}.hero-foot a span{font-size:20px}.entrance{animation:rise var(--reveal) var(--ease) both}.tagline.entrance{animation-delay:100ms}.hero-cta.entrance{animation-delay:200ms}@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.services{display:flex;width:100%;min-height:610px;height:78svh;max-height:820px}.service{position:relative;flex:1 1 0;min-width:0;overflow:hidden;text-align:left;color:var(--ivory);padding:0;isolation:isolate;transition:flex-grow var(--panel-motion) var(--ease)}.service img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform var(--panel-motion) var(--ease)}.service::after{content:'';position:absolute;inset:auto 0 0;height:48%;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--service-shade))}.service-number{color:var(--text);position:absolute;top:32px;left:36px;font-size:10px;letter-spacing:2px}.service-copy{position:absolute;bottom:45px;left:clamp(24px,3.1vw,52px);right:24px}.service h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,4.4vw,68px);line-height:1;margin:0 0 17px}.service p{font-size:12px;line-height:1.8;max-width:290px;margin:0 0 23px}.service-explore{font-size:10px;letter-spacing:1.5px;display:inline-flex;gap:24px;border-bottom:1px solid #f8f6ef80;padding-bottom:10px}.service:focus-within{outline:3px solid var(--ivory);outline-offset:-8px}.reveal{opacity:0;transform:translateY(36px);transition:opacity var(--reveal) var(--ease),transform var(--reveal) var(--ease);transition-delay:var(--delay,0ms)}.reveal.visible{opacity:1;transform:none}@media(hover:hover) and (min-width:761px){.services:has(.service:hover) .service,.services:has(.service:focus-within) .service{flex-grow:22}.services .service:hover,.services .service:focus-within{flex-grow:56}.service:hover img,.service:focus-within img{transform:scale(1.03)}}
+dialog{background:var(--ivory);color:var(--text);border:1px solid var(--botanical);padding:56px;max-width:520px;width:calc(100% - 40px)}dialog::backdrop{background:#173d2e55}dialog h2{font-family:var(--display);font-size:44px;font-weight:400;margin:20px 0}dialog p{font-size:14px;line-height:1.8}.eyebrow{font-size:9px;letter-spacing:2px}.dialog-close{position:absolute;right:16px;top:12px;font-size:28px}.dialog-return{padding:16px 0 8px;border-bottom:1px solid var(--green);font-size:12px;margin-top:15px}
+@media(max-width:1000px){nav{gap:20px}.header{--gutter:28px}.booking{padding:12px}.language{margin-left:0}}
+@media(max-width:760px){:root{--header-height:84px}.header{padding:0 24px}.wordmark{font-size:28px}.menu-toggle{display:grid;gap:6px;padding:15px 0 15px 15px}.menu-toggle span{width:25px;height:1px;background:var(--green);transition:transform .25s}.menu-open .menu-toggle span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-open .menu-toggle span:last-child{transform:translateY(-3.5px) rotate(-45deg)}nav{display:none;position:absolute;top:80px;left:0;right:0;padding:25px 24px 34px;background:var(--ivory);align-items:stretch;gap:15px;font-size:16px}.menu-open nav{display:flex;flex-direction:column}nav>a,nav>button{text-align:left}.language{align-self:flex-start}.booking{justify-content:space-between;padding:15px}.hero{min-height:650px;max-height:900px}.hero-image{object-position:50% center}.hero-content{margin-top:var(--hero-copy-offset)}h1{font-size:clamp(58.6px,13.125vw,94.5px);margin-bottom:25px}.tagline{font-size:34px}.hero-cta{margin-top:32px;font-size:9px}.hero-foot{justify-content:center;bottom:24px}.hero-foot>a{display:none}.services{display:block;height:auto;max-height:none;min-height:0}.service{display:block;width:100%;height:560px}.service h2{font-size:56px}.service-copy{bottom:36px;left:28px}.service-number{left:28px;top:28px}.service p{font-size:13px}.service img{object-position:center 40%}dialog{padding:40px 28px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* A quiet, asymmetric pause after the service photography. */
+.about{--about-space:clamp(88px,10vw,160px);display:grid;grid-template-columns:48% 38%;justify-content:space-between;align-items:center;padding:var(--about-space) clamp(28px,7vw,112px) calc(var(--about-space) + 24px);background:var(--ivory)}
+.about-copy{padding:0 0 40px;max-width:560px}
+.about-label{font-size:10px;font-weight:500;letter-spacing:2.4px;color:var(--green);margin:0 0 29px}
+.about h2{font-family:var(--display);font-size:clamp(42px,4.25vw,66px);font-weight:400;line-height:1.08;letter-spacing:-.025em;color:var(--green);margin:0 0 30px}
+.about-body{font-size:14px;line-height:1.95;max-width:425px;margin:0 0 30px}
+.about-cta{display:inline-flex;align-items:center;gap:28px;padding:0 0 11px;border-bottom:1px solid #2f684f60;font-size:12px;font-weight:500;color:var(--green)}
+.about-cta span{font-size:20px;transition:transform 300ms var(--ease)}.about-cta:hover span{transform:translateX(4px)}
+.about-support{font-size:9px;letter-spacing:1.8px;color:var(--fresh);margin:54px 0 0}
+.about-photo{margin:35px 0 0;width:100%}.about-photo img{display:block;width:100%;height:auto}
+@media(max-width:760px){.about{display:block;padding:86px 28px 96px}.about-copy{padding:0;max-width:520px}.about-label{margin-bottom:24px;font-size:9px}.about h2{font-size:clamp(40px,10.5vw,56px);margin-bottom:25px}.about-body{font-size:13px;line-height:1.9}.about-support{margin-top:38px}.about-photo{width:88%;margin:52px 0 0 auto}}
+
+/* Signature partners: shared typography, three distinct editorial compositions. */
+.brands{background:var(--ivory);--brand-space:clamp(48px,6vw,96px)}
+.brands-intro{padding:16px var(--gutter) 76px;text-align:center;max-width:850px;margin:auto}
+.brand-label{font-size:10px;letter-spacing:2.2px;font-weight:600;color:var(--green);margin:0 0 23px;line-height:1.8}
+.brand-label span{display:block;font-size:9px;letter-spacing:1.8px;font-weight:400;color:var(--text);margin-top:4px}
+.brands h2,.brand-copy h3{font-family:var(--display);font-weight:400;color:var(--green);letter-spacing:-.025em;line-height:1.08;margin:0 0 24px}
+.brands h2{font-size:clamp(40px,4vw,60px)}.brands-summary{font-size:13px;line-height:1.9;max-width:550px;margin:0 auto}
+.brand-block{display:grid;grid-template-columns:59% 41%;align-items:center}
+.brand-image{margin:0;min-width:0}.brand-image img{width:100%;height:auto;display:block}
+.brand-copy{padding:52px clamp(28px,4.5vw,72px)}.brand-copy h3{font-size:clamp(32px,3.05vw,48px)}
+.brand-body{font-size:13px;line-height:1.9;margin:0 0 28px;max-width:420px}
+.brand-link{display:inline-flex;gap:24px;align-items:center;font-size:12px;padding-bottom:10px;border-bottom:1px solid #2f684f60;color:var(--green)}.brand-link span{font-size:20px}
+.brand-endymed{grid-template-columns:46% 54%;background:var(--botanical);padding:30px var(--gutter)}.brand-endymed .brand-copy{grid-column:1;grid-row:1;padding-left:clamp(0px,3vw,48px)}.brand-endymed .brand-image{grid-column:2;grid-row:1;padding:40px 12%}.brand-endymed img{max-height:530px;object-fit:contain}
+.brand-rene-furterer{grid-template-columns:63% 37%}.brand-rene-furterer .brand-copy{padding-left:clamp(28px,4vw,64px);padding-right:var(--gutter)}
+.brand-asset-pending{min-height:450px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--botanical);color:var(--green);font-size:11px;letter-spacing:2px}.brand-asset-pending span{font-size:10px;letter-spacing:0;margin-top:16px}.brand-endymed .brand-asset-pending{background:none}
+@media(max-width:760px){.brands-intro{padding:0 28px 58px;text-align:left}.brands h2{font-size:42px}.brands-summary{font-size:13px}.brand-block{display:flex;flex-direction:column;padding:0 28px 60px;align-items:stretch}.brand-image{order:0}.brand-copy{order:1;padding:34px 0 0}.brand-copy h3{font-size:38px}.brand-label{font-size:9px;margin-bottom:22px}.brand-endymed{padding-top:35px}.brand-endymed .brand-image{padding:12px 28px 0}.brand-endymed .brand-copy{padding:34px 0 0}.brand-endymed img{max-height:380px}.brand-rene-furterer{padding:38px 20px 72px}.brand-rene-furterer .brand-copy{padding:34px 8px 0}.brand-asset-pending{min-height:270px}.brand-endymed .brand-asset-pending{min-height:330px}}
+
+/* Blend the original white-backed device into the botanical field. */
+.brand-endymed .brand-image{mix-blend-mode:multiply}
+
+/* Brand ambience is confined to surrounding surfaces. Original assets stay intact. */
+.brand-dermalogica {
+  --sunlight: #f3ecdd;
+  position: relative;
+  background: radial-gradient(ellipse at 8% 0%, var(--sunlight), transparent 62%), var(--ivory);
+}
+.brand-dermalogica .brand-image {
+  position: relative;
+  padding: 48px 0 18px;
+  background: linear-gradient(118deg, #eee5d3 0%, #f7f3e9 42%, var(--ivory) 85%);
+}
+/* Faint leaf silhouettes fall only across the added upper surface, above the photo. */
+.brand-dermalogica .brand-image::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 42px;
+  pointer-events: none;
+  opacity: .17;
+  filter: blur(7px);
+  background:
+    radial-gradient(ellipse 42px 12px at 3% 15%, #79816b 45%, transparent 72%),
+    radial-gradient(ellipse 28px 10px at 13% 73%, #79816b 45%, transparent 72%),
+    radial-gradient(ellipse 35px 10px at 21% 7%, #79816b 45%, transparent 72%),
+    linear-gradient(155deg, transparent 15%, #79816b44 17%, transparent 19%);
+}
+.brand-dermalogica .brand-copy { padding-top: 38px; padding-bottom: 66px; }
+.brand-endymed {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 68% 15%, #faf9f0b3, transparent 56%),
+    linear-gradient(108deg, #e6eee6 35%, #e2e8de 77%, #f2f1e7 100%);
+}
+/* A distant wall return and broad reflected light, with no platform or room props. */
+.brand-endymed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 86%, #c1cabd18 86.1%, #f8f6ef66 86.5%, #f8f6ef22 100%),
+    linear-gradient(153deg, transparent 19%, #fffff52b 24%, #fffff52b 32%, transparent 39%),
+    linear-gradient(174deg, transparent 81%, #bec8b815 82%, transparent 94%);
+}
+.brand-endymed::after {
+  content: '';
+  position: absolute;
+  top: 3%; right: -42px;
+  width: 140px; height: 240px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .12;
+  filter: blur(16px);
+  background:
+    radial-gradient(ellipse 28px 45px at 26% 16%, #6e8060 40%, transparent 68%),
+    radial-gradient(ellipse 30px 50px at 67% 40%, #6e8060 40%, transparent 68%),
+    radial-gradient(ellipse 25px 40px at 30% 67%, #6e8060 40%, transparent 68%);
+}
+@media(max-width:760px) {
+  .brand-dermalogica .brand-image { padding: 28px 0 12px; }
+  .brand-dermalogica .brand-image::before { height: 24px; opacity: .12; }
+  .brand-dermalogica .brand-copy { padding: 34px 0 0; }
+  .brand-endymed::before {
+    background: linear-gradient(90deg, transparent 92%, #c1cabd12 92.2%, #f8f6ef44 92.6%, transparent 100%);
+  }
+  .brand-endymed::after { right: -70px; opacity: .08; }
+}
+
+
+/* Visit: original storefront portrait, with all business data in business.js. */
+.visit{display:grid;grid-template-columns:47% 37%;justify-content:space-between;align-items:center;padding:clamp(64px,7vw,112px) clamp(28px,7vw,112px) clamp(96px,10vw,160px);background:var(--ivory)}
+.visit-copy{max-width:540px}.visit-label{font-size:10px;font-weight:500;letter-spacing:2.4px;color:var(--green);margin:0 0 28px}
+.visit h2{font-family:var(--display);font-weight:400;font-size:clamp(42px,4.25vw,66px);line-height:1.08;letter-spacing:-.025em;color:var(--green);margin:0 0 32px}
+.visit-address{font-style:normal;font-size:15px;line-height:1.85;margin-bottom:30px}
+.visit-details{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;max-width:390px}.visit-hours{grid-column:1/-1}.visit-details h3{font-size:9px;font-weight:500;letter-spacing:1.8px;color:var(--green);margin:0 0 6px}.visit-details p{font-size:13px;line-height:1.8;margin:0}.visit-details a{font-size:14px;display:inline-flex;align-items:center;min-height:44px}
+.visit-actions{display:flex;flex-wrap:wrap;gap:14px 32px;margin-top:28px}.visit-actions a{display:inline-flex;gap:24px;align-items:center;min-height:44px;padding-bottom:6px;border-bottom:1px solid #2f684f60;font-size:12px;color:var(--green)}.visit-actions span{font-size:20px}
+.visit-photo{margin:24px 0 0;width:100%}.visit-photo img{display:block;width:100%;height:auto}
+@media(max-width:760px){.visit{display:block;padding:60px 28px 96px}.visit h2{font-size:clamp(40px,10.5vw,56px)}.visit-address{font-size:14px}.visit-details{gap:18px 24px}.visit-actions{gap:12px 28px}.visit-photo{width:100%;margin:52px 0 0}}
+
+
+/* Homepage ending and persistent contact. */
+.site-footer{background:var(--deep);color:var(--ivory);padding:88px clamp(28px,7vw,112px) calc(34px + env(safe-area-inset-bottom,0px))}
+.footer-main{display:grid;grid-template-columns:1.6fr .7fr 1fr;gap:clamp(36px,6vw,96px);padding-bottom:40px}
+.footer-brand>a{font-family:var(--display);font-size:clamp(47.96px,4.578vw,69.76px);font-weight:400;letter-spacing:-.04em;line-height:1}
+.footer-brand p{font-size:10px;letter-spacing:1.8px;margin:20px 0 0;color:#e6eee6bf}
+.site-footer h2{font:500 10px/1.8 var(--body);letter-spacing:2px;text-transform:uppercase;margin:0 0 18px;color:#e6eee6bf}
+.site-footer .footer-explore{display:flex;position:static;flex-direction:column;align-items:flex-start;gap:0;background:none;padding:0;font-size:13px}
+.footer-explore a,.footer-contact a{display:flex;align-items:center;min-height:44px;padding:0;font-size:13px}
+.footer-details address{font-style:normal;font-size:13px;line-height:1.9}.footer-details>p{font-size:12px;line-height:1.9;margin:15px 0 0;color:#e6eee6cc}
+.footer-contact{margin-top:30px}.footer-contact h2{margin-bottom:8px}
+.footer-optional:empty{display:none}.footer-optional{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:22px}.footer-optional a{font-size:12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:1px solid #f8f6ef55}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-right:56px;border-top:1px solid #f8f6ef26;color:#e6eee6aa;font-size:10px}.footer-bottom small{font-size:10px}.footer-bottom a{display:inline-flex;align-items:center;min-height:44px}
+.site-footer a:hover{color:var(--botanical)}.site-footer a:focus-visible{outline-color:var(--ivory)}
+.floating-whatsapp{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--green);color:var(--ivory);border:1px solid #f8f6ef55;border-radius:50%}
+.floating-whatsapp:hover{background:#25D366}.floating-whatsapp:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.whatsapp-label{position:absolute;right:62px;white-space:nowrap;background:var(--deep);color:var(--ivory);padding:10px 14px;font-size:11px;opacity:0;visibility:hidden;pointer-events:none}
+@media(hover:hover){.floating-whatsapp:hover .whatsapp-label,.floating-whatsapp:focus-visible .whatsapp-label{opacity:1;visibility:visible}}
+@media(max-width:760px){.site-footer{padding:56px 28px calc(80px + env(safe-area-inset-bottom,0px))}.footer-main{grid-template-columns:1fr;gap:26px;padding-bottom:28px}.footer-brand>a{font-size:48px}.footer-brand p{margin-top:16px}.footer-bottom{padding-right:0;align-items:flex-start;flex-direction:column;gap:6px}.footer-contact{margin-top:20px}.floating-whatsapp{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px))}.whatsapp-label{display:none}}
+
+@media(max-width:760px){
+  .site-footer .footer-explore{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:0}
+  .footer-explore h2{grid-column:1/-1}
+  .site-footer h2{margin-bottom:12px}
+  .footer-contact h2{margin-bottom:4px}
+  .footer-details>p{margin-top:10px}
+}
+
+/* WhatsApp contact stays one fifth of the viewport above the bottom. */
+.floating-whatsapp{background:#25D366;color:#fff;bottom:calc(20vh + env(safe-area-inset-bottom,0px))}
+.floating-whatsapp:hover{background:#25D366}
+.floating-whatsapp svg{color:#fff}
+.floating-whatsapp .whatsapp-label{background:var(--deep);color:#fff}
+
+/* Original SVG proportions are reserved before the asset loads. */
+.wordmark{display:inline-flex;align-items:center;flex-shrink:0}
+.official-logo{display:block;height:auto;aspect-ratio:911.826 / 161.883;object-fit:contain}
+.wordmark .official-logo{width:180px}
+.footer-brand>a{display:inline-block;max-width:100%}
+.footer-logo{width:clamp(250px,24vw,360px);max-width:100%;filter:brightness(0) invert(1)}
+@media(max-width:760px){.wordmark .official-logo{width:156px}.footer-logo{width:270px}}
+
+/* Hero 1 and Hero 2 share one compact horizontal presentation. */
+main > .hero{height:auto;min-height:0;max-height:none;aspect-ratio:1920 / 900}
+
+/* Secondary fixed action, aligned above WhatsApp. */
+.back-to-top{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20vh + 62px + env(safe-area-inset-bottom,0px));z-index:25;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--deep);color:var(--ivory);border:1px solid #f8f6ef55;border-radius:50%;transition:background .25s var(--ease),transform .25s var(--ease)}
+.back-to-top:hover{background:var(--green);transform:translateY(-2px)}.back-to-top:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}.back-to-top[hidden]{display:none}
+@media(max-width:760px){
+  #home{margin-top:var(--header-height)}
+  #home .hero-content{margin-top:0}
+  #home h1{font-size:clamp(34px,10vw,46px);margin-bottom:6px}
+  #home .tagline{font-size:clamp(16px,4.8vw,21px);line-height:1.1}
+  #home .hero-cta{margin-top:12px;font-size:7px;padding-bottom:6px}
+  #home .hero-cta span{font-size:14px}
+  .back-to-top{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(20vh + 58px + env(safe-area-inset-bottom,0px));width:46px;height:46px}
+}
+
+/* Brand names sit above the smaller category labels in the hierarchy. */
+.brand-block .brand-label{font-size:19px;letter-spacing:1.4px}
+@media(max-width:760px){.brand-block .brand-label{font-size:17px;letter-spacing:1.2px}}
+
+/* Each full panel is a native link; decorative layers cannot intercept clicks. */
+.service-explore{position:relative}
+.service-explore::before{content:'';position:absolute;inset:-12px 0 -10px;min-height:44px}
+.service-explore:hover{border-bottom-color:var(--ivory)}
+.service:focus-visible .service-explore{border-bottom-color:var(--ivory)}
+
+.service{cursor:pointer}
+.service img,.service::after,.service-explore::before{pointer-events:none}
+
+/* Theme the original SVG silhouette without editing the official source asset. */
+@supports (mask-image:url("/aquamarine-preview/assets/Aquamarine-logo.svg")) or (-webkit-mask-image:url("/aquamarine-preview/assets/Aquamarine-logo.svg")){
+  .wordmark,.footer-brand>a{position:relative}
+  .wordmark .official-logo,.footer-brand .official-logo{opacity:0}
+  .wordmark::after,.footer-brand>a::after{content:'';position:absolute;inset:0;pointer-events:none;background-color:var(--green);-webkit-mask:url("/aquamarine-preview/assets/Aquamarine-logo.svg") center / contain no-repeat;mask:url("/aquamarine-preview/assets/Aquamarine-logo.svg") center / contain no-repeat}
+  .footer-brand>a::after{background-color:var(--ivory)}
+}
+
+/* Shared Services disclosure; desktop pointer path stays inside its parent. */
+.header-services{position:relative}
+.services-toggle{display:flex;align-items:center;gap:7px;padding:10px 0;font:inherit;cursor:pointer}
+.services-indicator{display:none}
+.services-submenu{position:absolute;top:100%;left:-20px;width:190px;margin:0;padding:12px 0;list-style:none;background:var(--ivory);border-top:1px solid #2f684f26;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(5px);transition:opacity 180ms var(--ease),transform 180ms var(--ease),visibility 180ms}
+.services-submenu a{display:block;padding:12px 20px;min-height:44px;font:400 12px/1.7 var(--body);color:var(--green)}
+.services-submenu a:hover{color:var(--deep);background:var(--botanical)}
+.services-submenu a:focus-visible{outline:1px solid var(--green);outline-offset:-5px}
+.header-services.is-open>.services-submenu{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+@media(max-width:760px){
+.header-services{width:100%}
+.services-toggle{width:100%;min-height:44px;justify-content:space-between;text-align:left}
+.services-indicator{display:inline;font-size:18px;font-weight:400}
+.services-submenu{display:none;position:static;width:100%;padding:4px 0 8px 16px;border:0;transform:none;transition:none}
+.header-services.is-open>.services-submenu{display:block}
+.services-submenu a{padding:12px 0;font-size:14px;min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){.services-submenu{transition:none;transform:none}}
+
+/* Compact one-row Services preview for phone screens. */
+@media(max-width:760px){
+  .services{display:flex;height:clamp(280px,78vw,360px);min-height:0;max-height:none}
+  .service{display:block;flex:1 1 0;width:auto;height:100%;min-width:0}
+  .service::after{height:68%}
+  .service img{object-position:center 40%}
+  .service-number{top:16px;left:12px;font-size:7px;letter-spacing:1.2px}
+  .service-copy{bottom:17px;left:12px;right:8px}
+  .service h2{font-size:clamp(22px,7vw,30px);line-height:.94;margin:0 0 9px;overflow-wrap:anywhere}
+  .service p{display:none}
+  .service-explore{gap:4px;padding-bottom:5px;font-size:7px;letter-spacing:.75px}
+}

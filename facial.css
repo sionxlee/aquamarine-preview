@@ -1,0 +1,37 @@
+/* Category and variant presentation is scoped to Facial & Beauty. */
+.facial-page .service-category-nav{position:static;max-width:1440px;margin:0 auto;padding:0 clamp(28px,7vw,112px) 64px;display:flex;flex-wrap:wrap;gap:16px 24px}
+.facial-page .service-category-nav a{font-size:12px;line-height:1.8;color:var(--green);text-decoration:none;border-bottom:1px solid #2f684f40;padding:4px 0;transition:border-color .2s}
+.facial-page .service-category-nav a:hover{border-color:var(--green)}
+.facial-category{scroll-margin-top:calc(var(--header-height) + 28px);border-top:1px solid #2f684f40;padding:44px 0 88px;min-width:0}
+.facial-category>header{margin-bottom:40px}
+.facial-category h2{font:500 38px/1.2 var(--display);color:var(--green);margin:14px 0 0}
+.facial-group+.facial-group{margin-top:52px}
+.facial-group-title{font:500 28px/1.3 var(--display);color:var(--green);margin:0 0 24px}
+.facial-treatments{list-style:none;margin:0;padding:0}
+.facial-treatment{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44%);gap:48px;padding:27px 0;border-bottom:1px solid #2f684f1c;align-items:baseline;min-width:0}
+.facial-treatment>h3,.facial-treatment>h4{font:400 26px/1.3 var(--display);color:var(--green);margin:0;overflow-wrap:anywhere}
+.facial-variants{min-width:0}
+.facial-variant{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:18px;align-items:baseline}
+.facial-variant+.facial-variant{margin-top:20px}
+.facial-area{font-size:12px;line-height:1.7;margin:0;overflow-wrap:anywhere}
+.facial-variant dl{grid-column:2;display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0;font-variant-numeric:tabular-nums}
+.facial-variant dt{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--fresh);margin-bottom:7px}
+.facial-variant dd{font-size:14px;line-height:1.6;margin:0;white-space:nowrap}
+.facial-variant dl>div:last-child{text-align:right}
+/* Add-ons have lighter, smaller service names beneath their subsection headings. */
+#add-ons .facial-treatment>h4{font:400 14px/1.8 var(--body);color:var(--text)}
+@media(max-width:1000px){.facial-treatment{grid-template-columns:minmax(0,1fr) minmax(0,44%);gap:28px}.facial-variant{display:block}.facial-area{margin-bottom:12px}.facial-variant dl{max-width:180px;margin-left:auto}}
+@media(max-width:760px){.facial-page .service-category-nav{padding:0 28px 44px;gap:12px 20px}.facial-category{padding:32px 0 60px}.facial-category h2{font-size:32px}.facial-category>header{margin-bottom:24px}}
+@media(max-width:600px){
+.facial-page .service-page-hero{padding-left:20px;padding-right:20px}
+.facial-page .service-category-nav{padding-left:20px;padding-right:20px}
+.facial-treatment{display:block;width:100%;padding:24px 0}
+.facial-treatment>h3,.facial-treatment>h4{font-size:26px;margin-bottom:18px}
+.facial-variant{display:block;max-width:100%}
+.facial-variant+.facial-variant{border-top:1px solid #2f684f14;margin-top:16px;padding-top:16px}
+.facial-area{font-size:12px;margin-bottom:10px}
+.facial-variant dl{display:block;max-width:none;width:100%;margin:0}
+.facial-variant dl>div{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:16px;align-items:baseline;padding:5px 0;text-align:left}
+.facial-variant dt{margin:0;text-align:left}.facial-variant dd{text-align:right}
+.facial-group+.facial-group{margin-top:40px}
+}

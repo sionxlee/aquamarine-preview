@@ -1,0 +1,27 @@
+:root{--chinese:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;--body:"Manrope",var(--chinese);--display:var(--chinese)}
+html[lang="zh-SG"]{font-weight:400}
+html[lang="zh-SG"] h1,html[lang="zh-SG"] h2,html[lang="zh-SG"] h3{font-weight:400;letter-spacing:.01em;line-height:1.4}
+html[lang="zh-SG"] .hero h1{font-family:'Cormorant Garamond',Georgia,serif;line-height:1;letter-spacing:-.045em}
+html[lang="zh-SG"] .tagline{font-size:clamp(24px,2.7vw,40px);line-height:1.6;letter-spacing:.07em}
+html[lang="zh-SG"] .service h2{font-size:clamp(30px,3vw,44px);line-height:1.4}
+html[lang="zh-SG"] .service p{line-height:1.9}
+html[lang="zh-SG"] .service-number{letter-spacing:1.5px}
+html[lang="zh-SG"] .brand-block h3{font-size:clamp(28px,3vw,44px);line-height:1.5}
+html[lang="zh-SG"] .brands-intro h2,html[lang="zh-SG"] .about h2,html[lang="zh-SG"] .visit h2{font-size:clamp(30px,3.6vw,48px);line-height:1.5}
+html[lang="zh-SG"] #about-page h1,html[lang="zh-SG"] #contact-page h1,html[lang="zh-SG"] .service-page-hero h1{font-size:clamp(32px,3.7vw,54px);line-height:1.45;letter-spacing:.015em}
+html[lang="zh-SG"] #about-page h2,html[lang="zh-SG"] #contact-page h2{font-size:clamp(28px,3vw,42px);line-height:1.5}
+html[lang="zh-SG"] .brand-about-partner-list dt{font-family:'Cormorant Garamond',Georgia,serif}
+html[lang="zh-SG"] .treatment-row h2,html[lang="zh-SG"] .facial-treatment>h3,html[lang="zh-SG"] .facial-treatment>h4{font-family:var(--body);font-size:20px;line-height:1.65}
+html[lang="zh-SG"] .facial-category h2,html[lang="zh-SG"] .service-menu-section h2{font-size:30px;line-height:1.5}
+html[lang="zh-SG"] .facial-group-title,html[lang="zh-SG"] .service-menu-group h3{font-size:24px;line-height:1.5}
+html[lang="zh-SG"] .treatment-english{display:block;font:400 11px/1.7 'Manrope',sans-serif;color:var(--fresh);letter-spacing:0;margin-top:7px;white-space:normal;overflow-wrap:anywhere}
+html[lang="zh-SG"] .facial-variant dd{white-space:nowrap}
+html[lang="zh-SG"] .service-menu th{overflow-wrap:anywhere}
+@media(max-width:760px){
+html[lang="zh-SG"] .service h2{font-size:32px}
+html[lang="zh-SG"] #about-page h1,html[lang="zh-SG"] #contact-page h1,html[lang="zh-SG"] .service-page-hero h1{font-size:32px;line-height:1.5}
+html[lang="zh-SG"] #about-page h2,html[lang="zh-SG"] #contact-page h2{font-size:28px}
+html[lang="zh-SG"] .service-page-hero h1 br{display:none}
+html[lang="zh-SG"] .facial-treatment>h3,html[lang="zh-SG"] .facial-treatment>h4,html[lang="zh-SG"] .treatment-row h2{font-size:20px}
+html[lang="zh-SG"] .footer-explore a{line-height:1.8;letter-spacing:0}
+}

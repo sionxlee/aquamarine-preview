@@ -1,0 +1,5 @@
+/* The functional selector keeps the approved navigation geometry. */
+#navigation>.language{padding:10px 0}
+.language a{color:inherit;text-decoration:none}
+.language a:hover{text-decoration:underline;text-underline-offset:4px}
+.language a:focus-visible{outline:1px solid var(--green);outline-offset:4px}
