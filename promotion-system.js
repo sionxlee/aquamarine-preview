@@ -159,7 +159,10 @@
     if (!config.popup.enabled || !campaign) return;
     const navigation = performance.getEntriesByType('navigation')[0];
     if (navigation?.type === 'back_forward') return;
-    try { if (sessionStorage.getItem(config.popup.sessionKey)) return; } catch (_) {}
+    if (navigation?.type !== 'reload') {
+      if (document.referrer && new URL(document.referrer).origin === window.location.origin) return;
+      try { if (sessionStorage.getItem(config.popup.sessionKey)) return; } catch (_) {}
+    }
     const root = document.createElement('div');
     root.className = 'promotion-popup'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-modal', 'true'); root.setAttribute('aria-label', campaign[lang].title);
     root.innerHTML = `<div class="promotion-popup-backdrop" data-promo-close></div><div class="promotion-popup-panel"><button class="promotion-popup-close" type="button" data-promo-close aria-label="${lang === 'zh' ? '关闭推广信息' : 'Close promotion'}">×</button><a href="${lang === 'zh' ? campaign.zhHref : campaign.href}" aria-label="${campaign[lang].title}">${picture(campaign, 0, 'popup')}</a></div>`;
