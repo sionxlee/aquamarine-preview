@@ -232,3 +232,44 @@ main > .hero{height:auto;min-height:0;max-height:none;aspect-ratio:1920 / 900}
   .service p{display:none}
   .service-explore{gap:4px;padding-bottom:5px;font-size:7px;letter-spacing:.75px}
 }
+
+/* REVU frames run at their rendered height while the page scrolls normally. */
+.client-reviews {
+  padding: clamp(52px, 8vw, 112px) var(--gutter) clamp(16px, 3vw, 44px);
+  background: var(--ivory);
+}
+.client-reviews h2 {
+  margin: 0 0 clamp(24px, 4vw, 44px);
+  color: var(--deep);
+  font: 400 clamp(36px, 5vw, 60px)/1.12 var(--display);
+  text-align: center;
+}
+.client-reviews-content {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+.client-reviews-content:not([data-state]) { min-height: 240px; }
+.client-review-badge {
+  padding: 0 var(--gutter) clamp(32px, 4vw, 52px);
+}
+.client-reviews iframe, .client-review-badge iframe {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  visibility: hidden;
+}
+.client-review-badge iframe {
+  max-width: 300px;
+  background: var(--deep);
+}
+.client-reviews iframe[data-ready], .client-review-badge iframe[data-ready] { visibility: visible; }
+.client-reviews-status {
+  margin: 0;
+  text-align: center;
+  color: var(--text);
+  font-size: 14px;
+}
+@media(max-width:760px) {
+  .client-reviews { padding-inline: 16px; }
+}
