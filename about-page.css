@@ -4,6 +4,7 @@
 #about-page section{padding-left:var(--about-page-gutter);padding-right:var(--about-page-gutter)}
 #about-page p,#about-page dd{font-size:14px;line-height:1.95;max-width:490px}
 #about-page p{margin:0 0 24px}
+.brand-about-contact{display:inline-flex;align-items:center;min-height:44px;color:var(--green);font-size:14px;text-decoration:underline;text-underline-offset:5px}
 #about-page .brand-about-label{font-size:10px;letter-spacing:2.4px;color:var(--green);margin-bottom:28px}
 #about-page h1,#about-page h2{color:var(--green);font-family:var(--display);font-weight:400;letter-spacing:-.025em}
 #about-page h1{font-size:clamp(44px,4.6vw,70px);line-height:1.08;margin:0 0 32px}

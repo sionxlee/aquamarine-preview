@@ -39,7 +39,7 @@
  plain('.visit-label','到访 AQUAMARINE');put('#visit-title','留一点时间，<br>好好照顾自己。');put('.visit-hours p','每日<br>上午 10:30 – 晚上 8:30');
  document.querySelectorAll('.visit-actions a').forEach((a,i)=>a.innerHTML=(i?'WhatsApp 联系我们':'查看路线')+' <span aria-hidden="true">→</span>');
  if(page==='/about/'){
- plain('.brand-about-hero .brand-about-label','关于 AQUAMARINE');put('#about-page-title','让美丽与身心护理，<br>自然相遇。');plain('.brand-about-hero div>p:last-child','Aquamarine 位于 East Coast Road，将美发、头皮与肌肤护理汇聚在同一个温馨舒适的空间，为每位顾客提供细致而贴心的美容体验。');
+ plain('.brand-about-hero .brand-about-label','关于 AQUAMARINE');put('#about-page-title','让美丽与身心护理，<br>自然相遇。');
  put('#choices-title','好的护理，<br>始于用心的选择。');const choices=['我们相信，更好的美容体验始于为每位顾客选择合适的产品、技术与护理方式。','Aquamarine 不追求千篇一律的护理方案，而是结合专业经验、细致手法与值得信赖的专业品牌，让每一次护理更贴合个人需求，同时兼顾效果、舒适与体验。'];document.querySelectorAll('.brand-about-choices p').forEach((el,i)=>el.textContent=choices[i]);
  plain('.brand-about-partners .brand-about-label','我们的专业合作品牌');put('#partners-title','每一个选择，<br>都有它的理由。');plain('.brand-about-partners header p:last-child','我们对专业品牌与技术的选择，也体现了 Aquamarine 对美容与护理的理念。');
  const partnerCopy=[['专业肌肤护理','Dermalogica 为我们的专业肌肤护理与个性化面部护理提供支持，让护理能够更贴合不同肌肤状态与需求。'],['先进美容科技','EndyMed 将先进美容科技带入特定护理项目，让科技与专业手法相互配合，为不同肌肤需求提供更多护理选择。'],['植物头皮与秀发护理','René Furterer Paris 将植物护理理念融入头皮与秀发护理，为 Aquamarine 的 Head Spa 体验带来从发根到发丝的专业养护。']];document.querySelectorAll('.brand-about-partner-list>div').forEach((el,i)=>{el.querySelector('dt span').textContent=partnerCopy[i][0];el.querySelector('dd').textContent=partnerCopy[i][1];});
