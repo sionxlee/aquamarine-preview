@@ -8,7 +8,6 @@
  'Home':'首页','About':'关于我们','Contact':'联系我们','Hair':'美发','Head Spa':'Head Spa 头皮护理','Facial':'美容护理','Facial & Beauty':'美容护理',
  'Hair · Beauty · Wellness':'美发 · 美容 · 身心护理','HAIR · HEAD SPA · FACIAL':'美发 · 头皮护理 · 美容护理',
  'OPENING HOURS':'营业时间','PHONE':'电话','CALL':'电话','Visit':'到访','VISIT':'到访','CONTACT':'联系','Explore':'探索',
- 'Daily · 10:30 AM — 8:30 PM':'每日 · 上午 10:30 – 晚上 8:30','Daily':'每日','10:30 AM – 8:30 PM':'上午 10:30 – 晚上 8:30',
  'Duration':'时长','Price':'价格',' min':'分钟','Service':'项目','Men':'男士','Ladies':'女士','Short':'短发','Medium':'中长发','Long':'长发',
  'CUT & STYLING':'剪发与造型','COLOUR':'染发','HIGHLIGHTS':'挑染','PERM':'烫发','HAIR TREATMENT':'秀发护理','SCALP TREATMENT':'头皮护理','Haircut':'剪发','Wash & Blow-Dry':'洗吹与造型',
  'Facial Treatments':'面部护理','Specialised Treatment':'专项护理','Specialised':'专项护理','Add-ons':'附加护理','Teenage Facial':'青少年面部护理','Sharplight':'Sharplight','Body':'身体护理','Body Contouring':'身体塑形',
@@ -36,7 +35,7 @@
  const brands=[['Dermalogica','专业肌肤护理','以专业肌肤健康理念，为不同肤质与需求提供个性化护理。','了解 Dermalogica'],['EndyMed','先进美容科技','将先进美容科技融入专业护理，让科技与细致服务相辅相成。','了解 EndyMed'],['René Furterer Paris','头皮与秀发护理','源自植物护理理念，从头皮到发丝提供专业而舒适的养护体验。','探索头皮护理']];
  document.querySelectorAll('.brand-block').forEach((el,i)=>{const [name,cat,body,cta]=brands[i];el.querySelector('.brand-label').innerHTML=name+'<span>'+cat+'</span>';el.querySelector('h3').textContent=cat;el.querySelector('.brand-body').textContent=body;el.querySelector('.brand-link').innerHTML=cta+' <span aria-hidden="true">→</span>';if(i===2)el.querySelector('.brand-link').href='/services/head-spa/';else el.querySelector('.brand-link').href='/about/#partners-title';});
  plain('.about-label','关于 AQUAMARINE');put('#about-title','从秀发到肌肤，<br>用心照顾每一处美丽。');plain('.about-body','从细致的美发服务，到舒缓的 Head Spa 头皮护理与个性化美容护理，Aquamarine 将美丽与身心放松融入同一个温馨舒适的空间。');put('.about-cta','了解 Aquamarine <span aria-hidden="true">→</span>');
- plain('.visit-label','到访 AQUAMARINE');put('#visit-title','留一点时间，<br>好好照顾自己。');put('.visit-hours p','每日<br>上午 10:30 – 晚上 8:30');
+ plain('.visit-label','到访 AQUAMARINE');put('#visit-title','留一点时间，<br>好好照顾自己。');
  document.querySelectorAll('.visit-actions a').forEach((a,i)=>a.innerHTML=(i?'WhatsApp 联系我们':'查看路线')+' <span aria-hidden="true">→</span>');
  if(page==='/about/'){
  plain('.brand-about-hero .brand-about-label','关于 AQUAMARINE');put('#about-page-title','让美丽与身心护理，<br>自然相遇。');
@@ -57,7 +56,7 @@
  }
  // Footer destinations intentionally stay in the selected language.
  put('.footer-explore','<h2>探索</h2><a href="/">首页</a><a href="/about/">关于我们</a><a href="/services/hair/">美发</a><a href="/services/head-spa/">Head Spa 头皮护理</a><a href="/services/facial/">美容护理</a><a href="/contact/">联系我们</a>');
- plain('.footer-details>h2','到访');plain('.footer-contact h2','联系');put('.footer-details>p','每日<br>上午 10:30 – 晚上 8:30');plain('.footer-bottom small','© 2026 Aquamarine Hair & Beauty');
+ plain('.footer-details>h2','到访');plain('.footer-contact h2','联系');plain('.footer-bottom small','© 2026 Aquamarine Hair & Beauty');
  document.querySelectorAll('a[href]').forEach(a=>{const raw=a.getAttribute('href');const href=raw.startsWith('/aquamarine-preview/')?raw.slice(19):raw;if(href.startsWith('#')){a.setAttribute('href',location.pathname+href);return;}if(href.startsWith('/')&&!href.startsWith('//'))a.setAttribute('href','/aquamarine-preview'+(href.startsWith('/zh/')?href:'/zh'+href));});
  document.querySelectorAll('.footer-explore a[href="/aquamarine-preview/zh/#about"]').forEach(a=>a.href='/aquamarine-preview/zh/about/');
  document.querySelector('.services')?.setAttribute('aria-label','我们的服务');

@@ -8,7 +8,7 @@ if (footer) {
       <div class="footer-brand reveal"><a href="#home" aria-label="Aquamarine home"><img class="official-logo footer-logo" src="/aquamarine-preview/assets/Aquamarine-logo.svg" width="911.826" height="161.883" alt="Aquamarine"></a><p>Hair · Beauty · Wellness</p></div>
       <nav class="footer-explore reveal" aria-label="Footer navigation" style="--delay:100ms"><h2>Explore</h2><a href="#about">About</a><a href="#services">Services</a><a href="/aquamarine-preview/contact/">Contact</a></nav>
       <div class="footer-details reveal" style="--delay:200ms">
-        <h2>Visit</h2><address>${business.address.street}<br>${business.address.locality}</address><p>${business.openingHours}</p>
+        <h2>Visit</h2><address>${business.address.street}<br>${business.address.locality}</address><p>${aquamarineOpeningHours.time}<br>${aquamarineOpeningHours.closed}</p>
         <div class="footer-contact"><h2>Contact</h2><a href="${links.phone}">${business.phone.display}</a><a href="${links.whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp ${business.whatsapp.display}</a></div>
         <div class="footer-optional"></div>
       </div>

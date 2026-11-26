@@ -8,7 +8,7 @@ if (visit) {
       <h2 id="visit-title" class="reveal" style="--delay:100ms">A little time,<br>just for you.</h2>
       <address class="visit-address reveal" style="--delay:200ms">${business.address.street}<br>${business.address.locality}</address>
       <div class="visit-details reveal" style="--delay:300ms">
-        <div class="visit-hours"><h3>OPENING HOURS</h3><p>${business.openingHours}</p></div>
+        <div class="visit-hours"><h3>OPENING HOURS</h3><p>${aquamarineOpeningHours.time}<br>${aquamarineOpeningHours.closed}</p></div>
         <div><h3>PHONE</h3><a href="${links.phone}">${business.phone.display}</a></div>
         <div><h3>WHATSAPP</h3><a href="${links.whatsapp}" target="_blank" rel="noopener noreferrer">${business.whatsapp.display}</a></div>
       </div>
