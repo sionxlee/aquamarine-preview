@@ -248,7 +248,7 @@ main > .hero{height:auto;min-height:0;max-height:none;aspect-ratio:1920 / 900}
   max-width: 72rem;
   margin-inline: auto;
 }
-.client-reviews-content:not([data-state]) { min-height: 240px; }
+.client-reviews-content:not([data-state]) { min-height: min(100svh, 900px); }
 .client-review-badge {
   padding: 0 var(--gutter) clamp(32px, 4vw, 52px);
 }

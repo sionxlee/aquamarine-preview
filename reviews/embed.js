@@ -21,6 +21,15 @@
   let lastHeight = 0;
   const notify = (type, height) => window.parent.postMessage({ source: 'aquamarine-revu', type, height }, '*');
   const reportSize = () => {
+    if (lastHeight === -1) return;
+    if (kind === 'badge') {
+      const score = container.querySelector('.revbadge-minimal-title')?.textContent.trim();
+      if (score && /^0(?:[.,]0+)?$/.test(score)) {
+        lastHeight = -1;
+        notify('empty');
+        return;
+      }
+    }
     const hasContent = [...container.children].some(child => !child.matches('script, style, link') && child.getBoundingClientRect().height > 0);
     if (!hasContent) return;
     const height = Math.ceil(mount.getBoundingClientRect().height);
@@ -31,6 +40,7 @@
   };
   const observer = new MutationObserver(() => {
     mount.querySelectorAll('script[type="application/ld+json"]').forEach(node => node.remove());
+    if (kind === 'feed') initReviewCarousel(container, Number(params.get('columns')));
     reportSize();
   });
   observer.observe(mount, { childList: true, subtree: true });

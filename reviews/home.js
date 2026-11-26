@@ -1,6 +1,9 @@
 (() => {
   const lang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
   const embedUrl = new URL('./embed.html', document.currentScript.src);
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  const tablet = window.matchMedia('(min-width: 600px)');
+  const reviewColumns = () => desktop.matches ? 3 : tablet.matches ? 2 : 1;
   const widgets = [
     {
       kind: 'feed',
@@ -19,16 +22,25 @@
   function load(widget) {
     const frame = document.createElement('iframe');
     const url = new URL(embedUrl);
-    url.searchParams.set('v', '3');
+    url.searchParams.set('v', '5');
     url.searchParams.set('kind', widget.kind);
     url.searchParams.set('lang', lang);
     frame.title = widget.title;
     frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
     frame.referrerPolicy = 'no-referrer';
     const fallback = widget.section.querySelector('.client-reviews-status');
+    const updateColumns = () => frame.contentWindow?.postMessage({ source: 'aquamarine-reviews-home', columns: reviewColumns() }, '*');
+    if (widget.kind === 'feed') {
+      url.searchParams.set('columns', String(reviewColumns()));
+      desktop.addEventListener('change', updateColumns);
+      tablet.addEventListener('change', updateColumns);
+      frame.addEventListener('load', updateColumns);
+    }
     const fail = () => {
       window.clearTimeout(timeout);
       window.removeEventListener('message', receive);
+      desktop.removeEventListener('change', updateColumns);
+      tablet.removeEventListener('change', updateColumns);
       frame.remove();
       if (fallback) {
         fallback.textContent = lang === 'zh' ? '暂时无法加载顾客评价。' : 'Client reviews are temporarily unavailable.';
@@ -40,7 +52,10 @@
     };
     const receive = event => {
       if (event.source !== frame.contentWindow || event.origin !== 'null' || event.data?.source !== 'aquamarine-revu') return;
-      if (event.data.type === 'error') {
+      if (widget.kind === 'badge' && event.data.type === 'empty') {
+        widget.mount.dataset.state = 'empty';
+        fail();
+      } else if (event.data.type === 'error') {
         fail();
       } else if (event.data.type === 'size' && Number.isInteger(event.data.height) && event.data.height > 0 && event.data.height <= 30000) {
         window.clearTimeout(timeout);

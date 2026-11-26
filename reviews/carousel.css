@@ -1,0 +1,104 @@
+#revu-embed .aquamarine-review-carousel {
+  --review-gap: 16px;
+  --review-width: 100%;
+  color: #254239;
+  font-family: Manrope, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+#revu-embed .aquamarine-review-carousel[data-columns="2"] { --review-width: calc((100% - var(--review-gap)) / 2); }
+#revu-embed .aquamarine-review-carousel[data-columns="3"] { --review-width: calc((100% - 2 * var(--review-gap)) / 3); }
+/* Keep the local heading and the separate badge as the introduction. */
+#revu-embed .aquamarine-review-carousel > .revwid-header { display: none !important; }
+#revu-embed .aquamarine-review-carousel > .revwid-ctas { padding-block: 2px !important; }
+#revu-embed .aquamarine-review-carousel > .revwid-leave-us-a-review { margin-top: 16px !important; }
+
+#revu-embed .aquamarine-review-carousel .aquamarine-review-track {
+  display: grid !important;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--review-width);
+  align-items: stretch;
+  gap: var(--review-gap) !important;
+  height: auto !important;
+  margin: 0;
+  padding: 2px 0 8px;
+  overflow-x: auto !important;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+#revu-embed .aquamarine-review-track::-webkit-scrollbar { display: none; }
+#revu-embed .aquamarine-review-track::before,
+#revu-embed .aquamarine-review-track::after { content: none !important; display: none !important; }
+#revu-embed .aquamarine-review-track.is-sliding { scroll-snap-type: none; }
+#revu-embed .aquamarine-review-track > .revwid-review {
+  position: relative !important;
+  inset: auto !important;
+  float: none !important;
+  order: 0 !important;
+  width: auto !important;
+  min-width: 0;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  scroll-snap-align: start;
+}
+#revu-embed .aquamarine-review-track .revwid-box {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 184px;
+  margin: 0 !important;
+  padding: clamp(18px, 3vw, 30px) !important;
+  background: #fffefa !important;
+  border: 1px solid #dce4da !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+#revu-embed .aquamarine-review-track .revwid-review-text {
+  color: #254239 !important;
+  font: 500 15px/1.65 Manrope, "PingFang SC", system-ui, sans-serif !important;
+  overflow-wrap: anywhere;
+}
+#revu-embed .aquamarine-review-track .revwid-review-date {
+  color: #425e54 !important;
+  font: 600 13px/1.5 Manrope, "PingFang SC", system-ui, sans-serif !important;
+}
+#revu-embed .aquamarine-review-controls {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin: 8px 0 16px;
+}
+#revu-embed .aquamarine-review-controls[hidden] { display: none !important; }
+#revu-embed .aquamarine-review-controls button {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  color: #173d2e;
+  background: #fffefa;
+  border: 1px solid #dce4da;
+  border-radius: 50%;
+  font: 600 20px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+.aquamarine-review-controls button[aria-disabled="true"] { opacity: .43; cursor: default; }
+.aquamarine-review-controls button:focus-visible,
+.aquamarine-review-track:focus-visible { outline: 2px solid #2f684f; outline-offset: -2px; }
+#revu-embed .aquamarine-review-dots { display: flex !important; min-width: 0; flex-wrap: wrap; justify-content: center; }
+#revu-embed .aquamarine-review-dots button { width: 32px; height: 36px; border: 0; background: transparent; }
+.aquamarine-review-dots button::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #9aaa9e;
+  border-radius: 50%;
+}
+.aquamarine-review-dots button[aria-current="true"]::before { background: #2f684f; width: 9px; height: 9px; }
+@media (max-width: 580px) {
+  #revu-embed .aquamarine-review-dots button { width: 24px; }
+  #revu-embed .aquamarine-review-controls { justify-content: center; }
+}
