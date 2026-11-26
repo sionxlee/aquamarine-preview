@@ -1,6 +1,6 @@
 /* Lightweight promotion configuration. Edit this file to activate, order or replace campaigns. */
 window.AquamarinePromotions = {
-  popup: { enabled: true, promotionId: 'hair-year-end', sessionKey: 'aquamarine-promotion-popup-v1' },
+  popup: { enabled: true, promotionId: 'hair-year-end' },
   promotions: [
     {
       id: 'hair-year-end', active: true, priority: 1,

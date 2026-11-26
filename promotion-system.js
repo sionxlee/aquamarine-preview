@@ -2,6 +2,7 @@
   const config = window.AquamarinePromotions;
   const target = document.querySelector('.hero-promotion-slideshow');
   if (!config || !target) return;
+  const siteRoot = new URL('./', document.currentScript.src);
 
   const lang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
   const active = config.promotions.filter(item => item.active).sort((a, b) => a.priority - b.priority);
@@ -183,9 +184,12 @@
     if (!config.popup.enabled || !campaign) return;
     const navigation = performance.getEntriesByType('navigation')[0];
     if (navigation?.type === 'back_forward') return;
-    if (navigation?.type !== 'reload') {
-      if (document.referrer && new URL(document.referrer).origin === window.location.origin) return;
-      try { if (sessionStorage.getItem(config.popup.sessionKey)) return; } catch (_) {}
+    if (navigation?.type !== 'reload' && document.referrer) {
+      const referrer = new URL(document.referrer);
+      // GitHub Pages can host other sites on this origin, outside this project.
+      const fromThisSite = referrer.origin === siteRoot.origin &&
+        (referrer.pathname.startsWith(siteRoot.pathname) || referrer.pathname === siteRoot.pathname.slice(0, -1));
+      if (fromThisSite) return;
     }
     const root = document.createElement('div');
     root.className = 'promotion-popup'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-modal', 'true'); root.setAttribute('aria-label', campaign[lang].title);
@@ -223,8 +227,7 @@
     // A restored history entry can reuse the existing DOM without running this script again.
     window.addEventListener('pagehide', removePopup);
     document.body.append(root);
-    try { sessionStorage.setItem(config.popup.sessionKey, '1'); } catch (_) {}
-    root.querySelector('.promotion-popup-close').focus();
+    root.querySelector('.promotion-popup-close').focus({ preventScroll: true });
   }
   popup();
 })();
